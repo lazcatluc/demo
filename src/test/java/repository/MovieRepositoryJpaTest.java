@@ -1,8 +1,7 @@
 package repository;
 
-import static org.junit.Assert.*;
-
-import java.util.Collections;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import javax.inject.Inject;
 
@@ -19,7 +18,7 @@ import demo.DemoApplication;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = DemoApplication.class)
 @WebAppConfiguration
-public class MovieRepositoryJpaIT {
+public class MovieRepositoryJpaTest {
 	@Inject
 	private MovieRepository movieRepository;
 	
@@ -39,8 +38,8 @@ public class MovieRepositoryJpaIT {
 		movieRepository.save(movie);
 		
 		Movie addedMovie = movieRepository.find("name");
-		movieRepository.save(addedMovie);
+		Movie updatedMovie = movieRepository.save(addedMovie);
 		
-		assertEquals(Collections.singletonList(movie), movieRepository.findAll());
+		assertTrue(movieRepository.findAll().contains(updatedMovie));
 	}
 }

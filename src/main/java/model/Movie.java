@@ -13,7 +13,6 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public class Movie implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private static final String[] EXCLUDED_FROM_EQUALS = new String[] {};
 	
 	@Id
 	private String name;
@@ -38,12 +37,12 @@ public class Movie implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return HashCodeBuilder.reflectionHashCode(this, EXCLUDED_FROM_EQUALS);
+		return HashCodeBuilder.reflectionHashCode(this);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		return EqualsBuilder.reflectionEquals(this, obj, EXCLUDED_FROM_EQUALS);
+		return EqualsBuilder.reflectionEquals(this, obj);
 	}
 	
 	@Override
