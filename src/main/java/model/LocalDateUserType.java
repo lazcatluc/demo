@@ -19,11 +19,9 @@ import java.util.Date;
 public class LocalDateUserType implements EnhancedUserType, Serializable {
  
 	private static final long serialVersionUID = 1L;
-	private static final int[] SQL_TYPES = new int[]{Types.DATE};
- 
-    @Override
+	@Override
     public int[] sqlTypes() {
-        return SQL_TYPES;
+        return new int[]{Types.DATE};
     }
  
     @Override
